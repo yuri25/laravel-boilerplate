@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use Exception;
+use Carbon\Carbon;
 use App\Models\User;
 use App\Events\UserCreated;
 use App\Events\UserDeleted;
@@ -82,7 +83,10 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
         if (isset($input['password'])) {
             $user->password = Hash::make($input['password']);
         }
-        $user->confirmed = $confirmed;
+
+        if ($confirmed) {
+            $user->email_verified_at = Carbon::now();
+        }
 
         if (empty($user->locale)) {
             $user->locale = $this->localization->getDefaultLocale();

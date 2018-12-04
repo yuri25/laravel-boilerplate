@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Frontend;
 use App\Models\Tag;
 use App\Models\Post;
 use App\Models\User;
+use App\Facades\SEOMeta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
-use Artesaos\SEOTools\Facades\SEOMeta;
 use App\Repositories\Contracts\PostRepository;
 
 class BlogController extends FrontendController

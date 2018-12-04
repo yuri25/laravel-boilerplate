@@ -3,7 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Artesaos\SEOTools\Facades\SEOMeta;
+use App\Facades\SEOMeta;
 use App\Repositories\Contracts\MetaRepository;
 
 class MetaTags
